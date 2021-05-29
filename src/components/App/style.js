@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const AppWrapper = styled.div``;
 
 export const AppBody = styled.div`
-  position: fixed;
+  position: relative;
   top: 40px;
   left: 0;
   display: block;
