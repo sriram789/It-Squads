@@ -17,6 +17,7 @@ const StartActivity = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const submitHandler = (event) => {
+    setIsLoading(true);
     event.preventDefault();
     let resultData = [];
     let userName = event.currentTarget.children[0].children[1].value;
@@ -34,7 +35,7 @@ const StartActivity = (props) => {
       name: userName,
       data: resultData
     };
-    axios.post('/results.json', modifiedData).then(() => props.history.push('/fun'));
+    axios.post('/results.json', modifiedData).then(() => { setIsLoading(false); props.history.push('/fun');}).catch(() => setIsLoading(false));
   };
 
   return (
