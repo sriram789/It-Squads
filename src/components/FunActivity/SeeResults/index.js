@@ -1,53 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { IndividualResultWrapper, ResultsWrapper, Name, ResponderViewDetail, ResponderViewName, ResponderViewWrapper, IndividualResultData } from './style';
-
-const resultData = [
-  {
-    name: 'user1',
-    data: [
-      {
-        name: 'user2',
-        fact: 'some random text'
-      },
-      {
-        name: 'user3',
-        fact: 'some random text'
-      }
-    ]
-  },
-  {
-    name: 'user2',
-    data: [
-      {
-        name: 'user1',
-        fact: 'some random text'
-      },
-      {
-        name: 'user3',
-        fact: 'some random text'
-      }
-    ]
-  },
-  {
-    name: 'user3',
-    data: [
-      {
-        name: 'user1',
-        fact: 'some random text'
-      },
-      {
-        name: 'user2',
-        fact: 'some random text'
-      }
-    ]
-  }
-];
+import axios from '../../../services/axios';
 
 const ResponderView = ({result}) => {
   return (
     <ResponderViewWrapper>
       <ResponderViewName>{result.name}</ResponderViewName>
-      <ResponderViewDetail>{result.fact}</ResponderViewDetail>
+      <ResponderViewDetail>{result.data}</ResponderViewDetail>
     </ResponderViewWrapper>
   );
 };
@@ -71,7 +30,14 @@ const Results = () => {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
-    setResult(resultData);
+    axios.get('/results.json').then(({data}) => {
+      console.log(data);
+      let resultData = [];
+      for(let item in data) {
+        resultData.push(data[item]);
+      }
+      setResult(resultData);
+    })
   }, []);
 
   return (

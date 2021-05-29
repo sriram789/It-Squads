@@ -1,5 +1,6 @@
-import React from 'react';
-import { StartActivityWrapper, EnterViewWrapper, SubmitButton } from './style';
+import React, { useState } from 'react';
+import { StartActivityWrapper, EnterViewWrapper, SubmitButton, UserNameWrapper } from './style';
+import axios from '../../../services/axios';
 
 const USER_LIST = ['Jey', 'Arunachalam', 'Padmashri', 'Abishek', 'Anil', 'Aarthi', 'Aishwarya', 'Sriram'];
 
@@ -13,10 +14,13 @@ const EnterView = ({user}) => {
 };
 
 const StartActivity = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const submitHandler = (event) => {
     event.preventDefault();
     let resultData = [];
-    for(let i = 0; i<8; i++) {
+    let userName = event.currentTarget.children[0].children[1].value;
+    for(let i = 1; i<9; i++) {
       let name = event.currentTarget.children[i].children[0].innerText;
       let data = event.currentTarget.children[i].children[1].value;
       let result = {
@@ -25,22 +29,33 @@ const StartActivity = (props) => {
       };
 
       resultData.push(result);
-    }
-    console.log(resultData);
-    props.history.push('/fun');
+    };
+    let modifiedData = {
+      name: userName,
+      data: resultData
+    };
+    axios.post('/results.json', modifiedData).then(() => props.history.push('/fun'));
   };
 
   return (
     <StartActivityWrapper>
-      <form onSubmit={submitHandler}>
-        {
-          USER_LIST.map((user) => {
-            return <EnterView user={user} key={user}/>
-          })
-        }
-        <SubmitButton>SUBMIT</SubmitButton>
-      </form>
-      
+      {
+        isLoading ? <div>Saving the data......</div> :
+        (
+          <form onSubmit={submitHandler}>
+            <UserNameWrapper>
+              <label>Name:</label>
+              <input placeholder="Enter Your Name" />
+            </UserNameWrapper>
+            {
+              USER_LIST.map((user) => {
+                return <EnterView user={user} key={user}/>
+              })
+            }
+            <SubmitButton>SUBMIT</SubmitButton>
+          </form>
+        )
+      }
     </StartActivityWrapper>
   )
 };

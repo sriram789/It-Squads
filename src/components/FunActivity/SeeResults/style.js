@@ -40,7 +40,11 @@ export const ResponderViewName = styled.span`
   margin-bottom: 10px;
 `;
 
-export const ResponderViewDetail = styled.p``;
+export const ResponderViewDetail = styled.p`
+  background: white;
+  border-radius: 4px;
+  padding: 16px;
+`;
 
 export const IndividualResultData = styled.div`
   display: flex;

@@ -29,3 +29,14 @@ export const SubmitButton = styled.button`
   width: max-content;
   cursor: pointer;
 `;
+
+export const UserNameWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+
+  & label {
+    margin-right: 10px
+  }
+`;
