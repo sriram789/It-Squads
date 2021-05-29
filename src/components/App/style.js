@@ -10,4 +10,5 @@ export const AppBody = styled.div`
   width: -webkit-fill-available;
   height: -webkit-fill-available;
   padding: 16px;
+  overflow: auto;
 `;

@@ -1,19 +1,15 @@
 import React from 'react';
-import { FunActivityWrapper } from './style';
-import { Link } from 'react-router-dom';
+import { FunActivityWrapper, StyledLink, ActionItems, TeamTitle, ActivityTitle } from './style';
+
 const FunActivity = () => {
   return (
     <FunActivityWrapper>
-      <div>
-        <h1>The A-team Fun Activity</h1>
-        <h3>Activity Name: Tell us about your team members</h3>
-        <button>
-          <Link to="/results">See results</Link>
-        </button>
-        <button>
-          <Link to="/fun/startActivity">Start activity</Link>
-        </button>
-      </div>
+      <TeamTitle>The A-team Fun Activity</TeamTitle>
+      <ActivityTitle>Activity Name: Tell us about your team members</ActivityTitle>
+      <ActionItems>
+        <StyledLink to="/fun/results">See results</StyledLink>
+        <StyledLink to="/fun/startActivity">Start activity</StyledLink>
+      </ActionItems>
     </FunActivityWrapper>
   )
 };
