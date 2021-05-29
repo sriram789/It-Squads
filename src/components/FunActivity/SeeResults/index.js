@@ -31,7 +31,6 @@ const Results = () => {
 
   useEffect(() => {
     axios.get('/results.json').then(({data}) => {
-      console.log(data);
       let resultData = [];
       for(let item in data) {
         resultData.push(data[item]);
