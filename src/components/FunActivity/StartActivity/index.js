@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StartActivityWrapper, EnterViewWrapper, SubmitButton, UserNameWrapper } from './style';
 import axios from '../../../services/axios';
 
-const USER_LIST = ['Jey', 'Arunachalam', 'Padmashri', 'Abishek', 'Anil', 'Aarthi', 'Aishwarya', 'Sriram'];
+const USER_LIST = ['Jey', 'Alkaff', 'Arunachalam', 'Padmashri', 'Abishek', 'Anil', 'Aarthi', 'Aishwarya', 'Sriram'];
 
 const EnterView = ({user}) => {
   return (
@@ -21,7 +21,7 @@ const StartActivity = (props) => {
     event.preventDefault();
     let resultData = [];
     let userName = event.currentTarget.children[0].children[1].value;
-    for(let i = 1; i<9; i++) {
+    for(let i = 1; i<10; i++) {
       let name = event.currentTarget.children[i].children[0].innerText;
       let data = event.currentTarget.children[i].children[1].value;
       let result = {
