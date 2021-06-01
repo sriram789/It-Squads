@@ -51,7 +51,7 @@ const Results = () => {
           {
             result[currentResult].map((data, index) => {
               return (
-                <StyledLI key={index}>
+                data && <StyledLI key={index}>
                   <div>
                     {
                       data
