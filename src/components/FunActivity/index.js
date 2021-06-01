@@ -7,7 +7,7 @@ const FunActivity = () => {
       <TeamTitle>The A-team Fun Activity</TeamTitle>
       <ActivityTitle>Activity Name: Tell us about your team members</ActivityTitle>
       <ActionItems>
-        {/* <StyledLink to="/fun/results">See results</StyledLink> */}
+        <StyledLink to="/fun/results">See results</StyledLink>
         <StyledLink to="/fun/startActivity">Start activity</StyledLink>
       </ActionItems>
     </FunActivityWrapper>
