@@ -4,6 +4,7 @@ import Header from '../Header';
 import { AppWrapper, AppBody } from './style';
 import FunActivity from '../FunActivity';
 import StartActivity from '../FunActivity/StartActivity';
+import ConsolidatedResults from '../FunActivity/ConsolidatedResults';
 import Results from '../FunActivity/SeeResults';
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
         <Header />
         <AppBody>
           <Switch>
+            <Route path="/fun/consolidatedresults" exact component={ConsolidatedResults} />
             <Route path="/fun/results" exact component={Results} />
             <Route path="/fun/startActivity" exact component={StartActivity} />
             <Route path="/fun" exact component={FunActivity} />

@@ -11,7 +11,7 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   width: 50px;
   height: 40px;
-  padding: 8px;
+  padding: 8px 12px;
   background: #2c5cc5;
   color: white;
   cursor: pointer;
